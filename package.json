@@ -1,0 +1,33 @@
+{
+  "name": "norview",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://github.com/UserR3D/Norview#readme",
+  "bugs": {
+    "url": "https://github.com/UserR3D/Norview/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UserR3D/Norview.git"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.3.2"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.2",
+    "@eslint/eslintrc": "^3"
+  }
+}
