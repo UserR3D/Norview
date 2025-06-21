@@ -6,6 +6,10 @@ export default function Home() {
   const [user, setUser] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
 
+type token ={
+  token: string
+}
+
   async function login() {
     const request = await fetch("http://localhost:3333/login", {
       method: "POST",
@@ -13,11 +17,11 @@ export default function Home() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email: user, password: access }),
+      credentials: "include",
     });
-    const response = await request.json();
-    window.localStorage.setItem("token", response.token)
+    const response = await request.json() as token;
+    console.log(response)
   }
-  console.log(user, access);
 
   return (
     <div className={styles.page}>
