@@ -6,10 +6,6 @@ export default function Home() {
   const [user, setUser] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
 
-type token ={
-  token: string
-}
-
   async function login() {
     const request = await fetch("http://localhost:3333/login", {
       method: "POST",
@@ -19,8 +15,7 @@ type token ={
       body: JSON.stringify({ email: user, password: access }),
       credentials: "include",
     });
-    const response = await request.json() as token;
-    console.log(response)
+    console.log(await request.json());
   }
 
   return (
