@@ -17,7 +17,8 @@ export default function Page() {
     console.log(response);
   }
   return (
-    <div>
+    <div className="font-medium text-gray-600 dark:text-gray-400">
+      <label htmlFor="title">Title</label>
       <input
         type="text"
         onChange={(e) => {
@@ -25,6 +26,7 @@ export default function Page() {
         }}
         value={title}
       />
+      <label htmlFor="content">Content</label>
       <input
         type="text"
         onChange={(e) => {
