@@ -17,7 +17,7 @@ export default function Page() {
     console.log(response);
   }
   return (
-    <div className="font-medium text-gray-600 dark:text-gray-400">
+    <div>
       <label htmlFor="title">Title</label>
       <input
         type="text"
