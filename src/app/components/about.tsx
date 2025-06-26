@@ -1,4 +1,4 @@
-export default function Page() {
+export default function About() {
   return (
     <ul className="flex content-center items-center gap-[30px]">
       <li className="max-w-max text-7xl text-center bg-[#D9D9D9] p-[3.5rem] ">
