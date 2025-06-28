@@ -7,11 +7,11 @@ export default async function Posts() {
   return (
     <div>
       <h2>Posts</h2>
-      <ul className="grid grid-cols-3 gap-[30px] [&>*]:bg-[#D9D9D9]">
+      <ul className="grid grid-cols-3 gap-[30px] [&>*]:bg-[#B3B3B3]  ">
         {posts.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} className="grid  max-w-[500px] h-[250px]">
             <h3>{item.title}</h3>
-            <p>{item.content}</p>
+            <p className="text-ellipsis overflow-hidden">{item.content}</p>
             <h3>{item.author.email}</h3>
           </li>
         ))}
