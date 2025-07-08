@@ -1,22 +1,37 @@
 "use client";
-import React from "react";
+import React, { DetailedHTMLProps, LiHTMLAttributes } from "react";
 
 export default function LoadingPosts({ state }: { state: Post[][] }) {
   const [index, setIndex] = React.useState<number | undefined>(0);
+  const [toggle, setToggle] = React.useState(false);
   function MoreIndex() {
     if (index! === state.length - 1) setIndex(0);
     setIndex((prevState) => prevState! + 1);
   }
+  function flowToggle(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
+    if (toggle) {
+      e.currentTarget.style.overflow = "visible";
+    } else {
+      e.currentTarget.style.overflow = "hidden";
+    }
+    setToggle(!toggle);
+  }
   return (
-    <ul>
-      {state[index!].map((item) => (
-        <li key={item.id}>
-          <h2>{item.title}</h2>
-          <p>{item.content}</p>
-          <h4>{item.author.email}</h4>
-        </li>
-      ))}
-      <button onClick={MoreIndex}>Loading More</button>
-    </ul>
+    <div>
+      <ul className="grid grid-cols-3 gap-10 mb-[20px] justify-items-center items-center">
+        {state[index!].map((item) => (
+          <li
+            key={item.id}
+            className={`max-h-[250px] text-justify `}
+            onClick={flowToggle}
+          >
+            <h2>{item.title}</h2>
+            <p>{item.content}</p>
+            <h4>{item.author.email}</h4>
+          </li>
+        ))}
+      </ul>
+      <button onClick={MoreIndex}>Next Page</button>
+    </div>
   );
 }

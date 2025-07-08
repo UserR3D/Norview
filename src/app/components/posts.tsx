@@ -1,4 +1,4 @@
-import LoadingPosts from "../lib/loadingPosts";
+import LoadingPosts from "@/app/lib/loadingPosts";
 
 const arrayI: Post[][] = [];
 const chunkSize = 3;
@@ -14,5 +14,10 @@ export default async function Posts() {
 
   if (!arrayI) return <p>Not loading</p>;
 
-  return <LoadingPosts state={arrayI} />;
+  return (
+    <div>
+      <h2>Posts</h2>
+      <LoadingPosts state={arrayI} />
+    </div>
+  );
 }
