@@ -1,9 +1,9 @@
 import LoadingPosts from "@/app/lib/loadingPosts";
 
-const arrayI: Post[][] = [];
 const chunkSize = 3;
 
 export default async function Posts() {
+  const arrayI: Post[][] = [];
   const request = await fetch("http://localhost:3333/users/posts");
   const posts = (await request.json()) as Post[];
 

@@ -5,8 +5,12 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
   const [index, setIndex] = React.useState<number | undefined>(0);
   const [toggle, setToggle] = React.useState(false);
   function MoreIndex() {
-    if (index! === state.length - 1) setIndex(0);
-    setIndex((prevState) => prevState! + 1);
+    if (index! == state.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex((prevState) => prevState! + 1);
+      console.log(state);
+    }
   }
   function flowToggle(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
     if (toggle) {
@@ -22,7 +26,7 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
         {state[index!].map((item) => (
           <li
             key={item.id}
-            className={`max-h-[250px] text-justify overflow-hidden`}
+            className={`h-[250px] grid grid-rows gap-2 text-justify overflow-hidden`}
             onClick={flowToggle}
           >
             <h2>{item.title}</h2>
