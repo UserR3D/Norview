@@ -22,7 +22,7 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
         {state[index!].map((item) => (
           <li
             key={item.id}
-            className={`max-h-[250px] text-justify `}
+            className={`max-h-[250px] text-justify overflow-hidden`}
             onClick={flowToggle}
           >
             <h2>{item.title}</h2>
