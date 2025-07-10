@@ -1,5 +1,5 @@
 "use client";
-import React, { DetailedHTMLProps, LiHTMLAttributes } from "react";
+import React from "react";
 
 export default function LoadingPosts({ state }: { state: Post[][] }) {
   const [index, setIndex] = React.useState<number | undefined>(0);

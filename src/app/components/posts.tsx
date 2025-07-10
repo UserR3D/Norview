@@ -1,8 +1,6 @@
 import LoadingPosts from "@/app/lib/loadingPosts";
 
-const chunkSize = 3;
-
-export default async function Posts() {
+export default async function Posts({ chunkSize }: { chunkSize: number }) {
   const arrayI: Post[][] = [];
   const request = await fetch("http://localhost:3333/users/posts");
   const posts = (await request.json()) as Post[];
@@ -15,8 +13,8 @@ export default async function Posts() {
   if (!arrayI) return <p>Not loading</p>;
 
   return (
-    <div>
-      <h2>Posts</h2>
+    <div className="mb-(--mg-l)">
+      <h2 className="text-4xl">Posts</h2>
       <LoadingPosts state={arrayI} />
     </div>
   );

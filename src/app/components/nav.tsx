@@ -1,11 +1,11 @@
 export default function Nav() {
   return (
-    <div className="flex justify-between mb-(--mg-l)">
+    <nav className="flex text-4xl justify-between mb-(--mg-l)">
       <h2>Norview</h2>
-      <ul className="flex gap-[2rem] justify-end ">
+      <ul className="flex gap-[2rem] justify-end  ">
         <li>Home</li>
         <li>Posts</li>
       </ul>
-    </div>
+    </nav>
   );
 }
