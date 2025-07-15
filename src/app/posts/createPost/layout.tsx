@@ -1,7 +1,5 @@
+import { verifySession } from "@/app/lib/verifySession";
 import type { Metadata } from "next";
-import "./global.css";
-import Nav from "./components/nav";
-import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,17 +11,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await verifySession();
+  console.log(session);
+  if (!session) {
+    return (
+      <div>
+        <p>Please make your login</p>
+      </div>
+    );
+  }
   return (
     <html lang="en">
-      <body>
-        <header>
-          <Nav />
-        </header>
-        {children}
-        <footer>
-          <Footer />
-        </footer>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
