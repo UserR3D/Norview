@@ -1,23 +1,11 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
+import singIn from "@/app/lib/signIn";
 
 export default function Home() {
   const [user, setUser] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
-
-  async function login() {
-    const request = await fetch("http://localhost:3333/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: user, password: access }),
-      credentials: "include",
-    });
-    console.log(await request.json());
-  }
-
   return (
     <div className={styles.page}>
       <input
@@ -36,7 +24,7 @@ export default function Home() {
         }}
         placeholder="Password"
       />
-      <button onClick={login}>Enter</button>
+      <button onClick={() => singIn(user, access)}>Enter</button>
     </div>
   );
 }

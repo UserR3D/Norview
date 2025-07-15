@@ -1,6 +1,8 @@
 import About from "@/app/components/about";
 import Posts from "./components/posts";
-export default function Home() {
+import { verifySession } from "./lib/session";
+export default async function Home() {
+  verifySession();
   return (
     <main>
       <About />
