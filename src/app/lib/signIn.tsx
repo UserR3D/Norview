@@ -1,4 +1,4 @@
-export default async function singIn(user: string, access: string) {
+export default async function signIn(user: string, access: string) {
   const request = await fetch("http://localhost:3333/login", {
     method: "POST",
     headers: {
@@ -8,5 +8,5 @@ export default async function singIn(user: string, access: string) {
     credentials: "include",
   });
   const response = await request.json();
-  return response.email;
+  return response;
 }

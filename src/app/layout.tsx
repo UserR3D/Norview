@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./global.css";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
+import { AuthProvider } from "@/hooks/useContext";
+import { verifySession } from "./lib/verifySession";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,16 +15,19 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await verifySession();
   return (
     <html lang="en">
       <body>
-        <header>
-          <Nav />
-        </header>
-        {children}
-        <footer>
-          <Footer />
-        </footer>
+        <AuthProvider>
+          <header>
+            <Nav username={session?.email} />
+          </header>
+          {children}
+          <footer>
+            <Footer />
+          </footer>
+        </AuthProvider>
       </body>
     </html>
   );

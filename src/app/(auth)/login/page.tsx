@@ -1,16 +1,17 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
-import singIn from "@/app/lib/signIn";
+import getSession from "@/hooks/useContext";
 
 export default function Home() {
+  const session = getSession();
   const [user, setUser] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
+  console.log(session?.username);
   return (
     <div className={styles.page}>
       <input
         type="email"
-        value={user}
         onChange={(e) => {
           setUser(e.target.value);
         }}
@@ -24,7 +25,7 @@ export default function Home() {
         }}
         placeholder="Password"
       />
-      <button onClick={() => singIn(user, access)}>Enter</button>
+      <button onClick={() => session?.signIn(user, access)}>Enter</button>
     </div>
   );
 }
