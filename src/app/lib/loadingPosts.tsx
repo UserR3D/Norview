@@ -13,12 +13,12 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
     }
   }
   function flowToggle(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
+    setToggle(!toggle);
     if (toggle) {
-      e.currentTarget.style.overflow = "visible";
+      e.currentTarget.style.overflow = "auto";
     } else {
       e.currentTarget.style.overflow = "hidden";
     }
-    setToggle(!toggle);
   }
   return (
     <div>
@@ -27,7 +27,9 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
           <li
             key={item.id}
             className={`relative max-h-[250px] grid grid-rows-[30px_1fr_30px] gap-2 items-center text-justify overflow-hidden`}
-            onClick={flowToggle}
+            onClick={(e) => {
+              flowToggle(e);
+            }}
           >
             <h2>{item.title}</h2>
             <p>{item.content}</p>
