@@ -2,32 +2,16 @@
 import React from "react";
 
 type ContextProviderType = {
-  username: string | undefined;
-  role: string | undefined;
-  signIn(user: string, access: string): Promise<void>;
+  theme: boolean;
+  setTheme: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AuthContext = React.createContext<ContextProviderType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [username, setUsername] = React.useState<string>();
-  const [role, setRole] = React.useState<string>();
-  async function signIn(user: string, access: string) {
-    const request = await fetch("http://localhost:3333/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: user, password: access }),
-      credentials: "include",
-    });
-    const response = await request.json();
-    setUsername(response.email);
-    setRole(response.role);
-  }
-
+  const [theme, setTheme] = React.useState(true);
   return (
-    <AuthContext.Provider value={{ username, role, signIn }}>
+    <AuthContext.Provider value={{ theme, setTheme }}>
       {children}
     </AuthContext.Provider>
   );

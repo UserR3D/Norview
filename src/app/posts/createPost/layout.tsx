@@ -12,7 +12,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await verifySession();
-  console.log(session);
   if (!session) {
     return (
       <div>
