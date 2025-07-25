@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import getSession from "@/hooks/useContext";
+import signIn from "@/app/lib/signIn";
 
 export default function Home() {
   const session = getSession();
@@ -25,7 +26,12 @@ export default function Home() {
         }}
         placeholder="Password"
       />
-      <button onClick={() => session?.signIn(user, access)}>Enter</button>
+      <button
+        className="bg-[#000] text-[#fff]"
+        onClick={() => signIn(user, access)}
+      >
+        Enter
+      </button>
     </div>
   );
 }

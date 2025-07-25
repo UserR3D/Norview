@@ -1,18 +1,21 @@
+import styles from "./about.module.css";
 export default function About() {
   return (
-    <ul className="flex content-center items-center gap-[30px] mb-(--mg-l)">
-      <li className="max-w-max text-7xl text-center bg-[#D9D9D9] p-[3.5rem] ">
+    <ul
+      className={`${styles.about} flex content-center container justify-center items-center text-(--font-P) gap-[10px]`}
+    >
+      <li className="text-7xl text-center">
         <h1>
           Welcome <br />
           To
           <br /> Norview
         </h1>
       </li>
-      <li className="text-right text-4xl bg-[#D9D9D9] p-[3.5rem]  ">
-        <h3 className="pb-[3.5rem]">
-          This blog site was created with a simple objective:
+      <li className="text-6xl text-center">
+        <h3>
+          This blog site was created with a simple objective: to give you a
+          friendly space for leaving comments.
         </h3>
-        <h3>to give you a friendly space for leaving comments.</h3>
       </li>
     </ul>
   );

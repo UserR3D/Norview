@@ -18,9 +18,9 @@ export default async function RootLayout({
   const session = await verifySession();
   return (
     <html lang="en">
-      <body>
+      <body className="bg-(--background)">
         <AuthProvider>
-          <header>
+          <header className="mb-(--mg-l) ">
             <Nav username={session?.email} />
           </header>
           {children}

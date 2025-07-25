@@ -3,8 +3,15 @@ import Posts from "./components/posts";
 export default async function Home() {
   return (
     <main>
-      <About />
-      <Posts chunkSize={3} />
+      <div className="mb-(--mg-l) ">
+        <About />
+      </div>
+      <span className="mb-(--mg-l)">
+        <h2 className="text-4xl text-center text-(--font-P)">Posts</h2>
+        <div className="mb-(--mg-l)">
+          <Posts chunkSize={3} />
+        </div>
+      </span>
     </main>
   );
 }

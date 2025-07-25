@@ -11,10 +11,5 @@ export default async function Posts({ chunkSize }: { chunkSize: number }) {
   }
 
   if (!arrayI) return <p>Not loading</p>;
-  return (
-    <div className="mb-(--mg-l)">
-      <h2 className="text-4xl">Posts</h2>
-      <LoadingPosts state={arrayI} />
-    </div>
-  );
+  return <LoadingPosts state={arrayI} />;
 }
