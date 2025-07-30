@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./nav.module.css";
 
 export default function Nav({ username }: { username: string | undefined }) {
@@ -8,7 +9,9 @@ export default function Nav({ username }: { username: string | undefined }) {
       <h2>Norview</h2>
       <ul className="flex gap-[2rem] justify-end  ">
         <li>Home</li>
-        <li>Posts</li>
+        <Link href={"/posts"}>
+          <li>Posts</li>
+        </Link>
         {username ? <li>{username}</li> : <li>Login</li>}
       </ul>
     </nav>

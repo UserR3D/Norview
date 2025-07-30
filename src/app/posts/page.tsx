@@ -1,5 +1,13 @@
+import { Suspense } from "react";
 import Posts from "../components/posts";
-
+import ErrorBoundary from "../components/ErrorBoundary";
+import Error from "./error";
 export default async function Home() {
-  return <Posts chunkSize={9} />;
+  return (
+    <ErrorBoundary fallback={<Error />}>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Posts chunkSize={3} />
+      </Suspense>
+    </ErrorBoundary>
+  );
 }

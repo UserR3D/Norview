@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 export default async function Page({
   params,
 }: {
@@ -6,7 +8,7 @@ export default async function Page({
   const postQuery = (await params).slug;
   const request = await fetch(`http://localhost:3333/users/posts/${postQuery}`);
   const postResponse = (await request.json()) as Post;
-  if (!postResponse.published) return null;
+  if (!postResponse) return notFound();
   return (
     <div>
       <h3>{postResponse.title}</h3>

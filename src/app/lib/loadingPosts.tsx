@@ -33,7 +33,7 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
           >
             <h2>{item.title}</h2>
             <p>{item.content}</p>
-            <h4 className="bg-[#506C64] p-2 text-[#fff] text-center">
+            <h4 className="bg-[#506C64] p-1 text-[#fff] text-center">
               {item.author.email}
             </h4>
           </li>

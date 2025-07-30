@@ -1,5 +1,9 @@
 import About from "@/app/components/about";
 import Posts from "./components/posts";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Error from "./error";
+import { Suspense } from "react";
+import Loading from "./loading";
 export default async function Home() {
   return (
     <main>
@@ -9,7 +13,11 @@ export default async function Home() {
       <span className="mb-(--mg-l)">
         <h2 className="text-4xl text-center text-(--font-P)">Posts</h2>
         <div className="mb-(--mg-l)">
-          <Posts chunkSize={3} />
+          <ErrorBoundary fallback={<Error />}>
+            <Suspense fallback={<Loading />}>
+              <Posts chunkSize={3} />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </span>
     </main>
