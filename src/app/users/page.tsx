@@ -13,7 +13,7 @@ export default function Home() {
   React.useEffect(() => {
     async function listF() {
       try {
-        const request = await fetch("http://localhost:3333/users", {
+        const request = await fetch(`${process.env.API_URL}/users`, {
           credentials: "include",
         });
         if (!request.ok) {
