@@ -21,7 +21,7 @@ export default async function RootLayout({
       <body className="bg-(--background)">
         <AuthProvider>
           <header className="mb-(--mg-l) ">
-            <Nav username={session?.email} />
+            <Nav username={session?.email} id={session?.id} />
           </header>
           {children}
           <footer>
