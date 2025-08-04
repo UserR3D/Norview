@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
-import signIn from "@/app/lib/signIn";
+import SignIn from "@/app/lib/SignIn";
 
 export default function Home() {
   const [user, setUser] = React.useState<string>("");
@@ -23,12 +23,7 @@ export default function Home() {
         }}
         placeholder="Password"
       />
-      <button
-        className="bg-[#000] text-[#fff]"
-        onClick={() => signIn(user, access)}
-      >
-        Enter
-      </button>
+      <SignIn user={user} access={access} />
     </div>
   );
 }

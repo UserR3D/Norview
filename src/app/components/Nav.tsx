@@ -1,14 +1,8 @@
 import Link from "next/link";
 import styles from "./nav.module.css";
-import LogOut from "./logOut";
+import LogOut from "./LogOut";
 
-export default function Nav({
-  username,
-  id,
-}: {
-  username: string | undefined;
-  id: number | undefined;
-}) {
+export default function Nav({ username }: { username: string | undefined }) {
   return (
     <nav
       className={`${styles.navMain}  container bg-(--bg-fgray) text-(--font-P) flex text-4xl justify-between`}
@@ -24,7 +18,9 @@ export default function Nav({
             <li>{username}</li>
             <div>
               <li>Posts</li>
-              <LogOut />
+              <li>
+                <LogOut />
+              </li>
             </div>
           </ul>
         ) : (

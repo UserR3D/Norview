@@ -1,5 +1,5 @@
-import About from "@/app/components/about";
-import Posts from "./components/posts";
+import About from "@/app/components/About";
+import Posts from "./components/Posts";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Suspense } from "react";
 import Loading from "./loading";

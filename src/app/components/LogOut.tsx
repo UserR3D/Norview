@@ -1,16 +1,16 @@
 "use client";
+
+import { useRouter } from "next/navigation";
+
 export default function LogOut() {
+  const router = useRouter();
   async function signOut() {
     const req = await fetch(`http://localhost:3333/logout`, {
       method: "DELETE",
       credentials: "include",
     });
-    const res = await req.json();
-    console.log(res);
+    router.refresh();
+    return await req.json();
   }
-  return (
-    <li>
-      <button onClick={signOut}>logOut</button>
-    </li>
-  );
+  return <button onClick={signOut}>logOut</button>;
 }

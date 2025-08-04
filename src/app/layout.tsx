@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./global.css";
-import Nav from "./components/nav";
-import Footer from "./components/footer";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import { AuthProvider } from "@/hooks/useContext";
 import { verifySession } from "./lib/verifySession";
 
@@ -21,7 +21,7 @@ export default async function RootLayout({
       <body className="bg-(--background)">
         <AuthProvider>
           <header className="mb-(--mg-l) ">
-            <Nav username={session?.email} id={session?.id} />
+            <Nav username={session?.email} />
           </header>
           {children}
           <footer>

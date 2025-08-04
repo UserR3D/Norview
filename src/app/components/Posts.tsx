@@ -1,4 +1,4 @@
-import LoadingPosts from "@/app/lib/loadingPosts";
+import LoadingPosts from "@/app/lib/LoadingPosts";
 
 export default async function Posts({ chunkSize }: { chunkSize: number }) {
   const arrayI: Post[][] = [];

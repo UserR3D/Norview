@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Posts from "../components/posts";
+import Posts from "../components/Posts";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Error from "./error";
 export default async function Home() {
