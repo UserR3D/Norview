@@ -1,3 +1,4 @@
+"use server";
 export default async function Footer() {
   return (
     <div className="bg-[#23B5D3]">

@@ -4,7 +4,14 @@ import React from "react";
 export default function LoadingPosts({ state }: { state: Post[][] }) {
   const [index, setIndex] = React.useState<number | undefined>(0);
   const [toggle, setToggle] = React.useState(false);
-  function MoreIndex() {
+  function minusIndex() {
+    if (!index) {
+      return null;
+    } else {
+      setIndex((prevState) => prevState! - 1);
+    }
+  }
+  function moreIndex() {
     if (index! == state.length - 1) {
       setIndex(0);
     } else {
@@ -39,8 +46,11 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
           </li>
         ))}
       </ul>
-      <div className="container flex justify-center">
-        <button className="bg-[#454ADE] p-3 " onClick={MoreIndex}>
+      <div className="container flex gap-10 justify-center">
+        <button className="bg-[#454ADE] p-3 " onClick={minusIndex}>
+          Before Page
+        </button>
+        <button className="bg-[#454ADE] p-3 " onClick={moreIndex}>
           Next Page
         </button>
       </div>

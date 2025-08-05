@@ -1,3 +1,4 @@
+"use server";
 import { Suspense } from "react";
 import Posts from "../components/Posts";
 import ErrorBoundary from "../components/ErrorBoundary";

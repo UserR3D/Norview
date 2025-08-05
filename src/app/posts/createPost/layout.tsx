@@ -19,9 +19,5 @@ export default async function CreatePostLayout({
       </div>
     );
   }
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }

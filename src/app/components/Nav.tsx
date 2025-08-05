@@ -7,9 +7,13 @@ export default function Nav({ username }: { username: string | undefined }) {
     <nav
       className={`${styles.navMain}  container bg-(--bg-fgray) text-(--font-P) flex text-4xl justify-between`}
     >
-      <h2>Norview</h2>
+      <Link href={"/"}>
+        <h2>Norview</h2>
+      </Link>
       <ul className="flex gap-[2rem] justify-end  ">
-        <li>Home</li>
+        <Link href={"/posts/createPost"}>
+          <li>Create+</li>
+        </Link>
         <Link href={"/posts"}>
           <li>Forum</li>
         </Link>

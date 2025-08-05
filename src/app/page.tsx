@@ -1,3 +1,4 @@
+"use server";
 import About from "@/app/components/About";
 import Posts from "./components/Posts";
 import ErrorBoundary from "./components/ErrorBoundary";

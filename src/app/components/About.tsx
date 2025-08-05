@@ -1,5 +1,6 @@
+"use server";
 import styles from "./about.module.css";
-export default function About() {
+export default async function About() {
   return (
     <ul
       className={`${styles.about} flex content-center container justify-center items-center text-(--font-P) gap-[10px]`}

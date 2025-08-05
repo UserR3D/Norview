@@ -1,3 +1,4 @@
+"use server";
 import LoadingPosts from "@/app/lib/LoadingPosts";
 
 export default async function Posts({ chunkSize }: { chunkSize: number }) {
