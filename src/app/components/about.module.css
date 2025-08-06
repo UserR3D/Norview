@@ -2,7 +2,7 @@
   height: 350px;
   border: 1px solid var(--smoky-black);
   background-color: var(--about-white);
-  padding: 3.5rem;
+  padding: 2.5rem;
   box-sizing: border-box;
   border-radius: 10px;
 }

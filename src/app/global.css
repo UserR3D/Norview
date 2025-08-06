@@ -9,6 +9,7 @@
   --smoky-black: #070600;
   --font-P: #01172f;
   --posts-bg: #d9d9d9;
+  --breakpoint-xiv: 100vw;
 }
 
 @media (prefers-color-scheme: dark) {
