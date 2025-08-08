@@ -3,9 +3,14 @@ import styles from "./about.module.css";
 export default async function About() {
   return (
     <ul
-      className={`${styles.about} flex content-center container justify-center content-center items-center text-(--font-P) gap-[10px]`}
+      className={`${styles.about} 
+      flex content-center container justify-center content-center items-stretch text-(--font-P) gap-2`}
     >
-      <li className="text-7xl text-center">
+      <li
+        className="text-7xl text-center self-center
+      max-[90rem]:text-5xl
+      "
+      >
         <h1>
           Welcome <br />
           To

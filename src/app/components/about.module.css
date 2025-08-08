@@ -1,8 +1,15 @@
-.about > li {
-  height: 350px;
+.about li {
+  text-align: center;
   border: 1px solid var(--smoky-black);
   background-color: var(--about-white);
   padding: 2.5rem;
   box-sizing: border-box;
   border-radius: 10px;
+  justify-self: center;
+}
+
+@media screen and (width <= 1440px) {
+  .about li {
+    padding: 1rem;
+  }
 }
