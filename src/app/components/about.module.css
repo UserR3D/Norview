@@ -8,8 +8,14 @@
   justify-self: center;
 }
 
-@media screen and (width <= 1440px) {
+@media (max-width: 96rem) {
   .about li {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .about li {
+    padding: 0.8rem;
   }
 }
