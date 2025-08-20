@@ -8,7 +8,7 @@ import AppError from "./error";
 export default async function Home() {
   return (
     <main>
-      <div className="mb-(--mg-l) ">
+      <div className="mb-(--mg-l) max-lg:mb-15">
         <About />
       </div>
       <span className="mb-(--mg-l)">

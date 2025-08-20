@@ -1,29 +1,16 @@
 "use client";
 import React from "react";
+import ApiClient from "../lib/FetchOn";
 
-type user = {
-  id: number;
-  email: string;
-  role: "ADMIN" | "USER";
-};
+const req = new ApiClient();
 
 export default function Home() {
   const [list, setList] = React.useState<user[]>();
 
   React.useEffect(() => {
     async function listF() {
-      try {
-        const request = await fetch(`${process.env.API_URL}/users`, {
-          credentials: "include",
-        });
-        if (!request.ok) {
-          throw new Error("Authentication required");
-        }
-        const response = (await request.json()) as user[];
-        setList(response);
-      } catch (e) {
-        if (e instanceof Error) console.error(e.message);
-      }
+      const res = await req.getUsers();
+      setList(res);
     }
     listF();
   }, []);

@@ -13,3 +13,9 @@ interface Post extends Author {
   published: boolean;
   authorID: number;
 }
+
+type user = {
+  id: number;
+  email: string;
+  role: "ADMIN" | "USER";
+};

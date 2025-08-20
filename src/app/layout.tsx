@@ -20,7 +20,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className="bg-(--background)">
         <AuthProvider>
-          <header className="mb-(--mg-l) ">
+          <header className="mb-(--mg-l) max-lg:mb-15 ">
             <Nav username={session?.email} />
           </header>
           {children}

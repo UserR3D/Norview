@@ -2,9 +2,7 @@
 import React from "react";
 
 export default function LoadingPosts({ state }: { state: Post[][] }) {
-  const [index, setIndex] = React.useState<number | undefined>(
-    (state.length - 1) | 0
-  );
+  const [index, setIndex] = React.useState<number | undefined>(0);
   const [toggle, setToggle] = React.useState(false);
 
   function minusIndex() {
@@ -31,18 +29,23 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
   }
   return (
     <span className="mb-(--mg-l) ">
-      <ul className="flex justify-center gap-[20px] mb-[20px] justify-items-center items-center ">
+      <ul
+        className="flex justify-center gap-[20px] mb-[20px] justify-items-center items-stretch 
+      max-md:flex-col max-md:items-center
+      "
+      >
         {state[index!].map((item) => (
           <li
             key={item.id}
-            className={`max-w-[600px] box-border p-4 basis-full h-[300px] text-(--smoky-black) grid grid-rows-[30px_1fr_30px] gap-2 items-center text-justify bg-(--posts-bg) overflow-hidden`}
+            className={`relative grid grid-rows-1 max-w-[600px] max-h-[300px] box-border p-4 basis-full text-(--smoky-black) gap-5 items-center text-justify bg-(--posts-bg) overflow-hidden
+             max-md:w-[300px] `}
             onClick={(e) => {
               flowToggle(e);
             }}
           >
             <h2>{item.title}</h2>
             <p>{item.content}</p>
-            <h4 className="bg-[#506C64] p-1 text-[#fff] text-center">
+            <h4 className="bg-[#506C64] p-1 text-[#fff] text-center sticky -bottom-5">
               {item.author.email}
             </h4>
           </li>

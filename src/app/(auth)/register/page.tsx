@@ -1,21 +1,12 @@
 "use client";
+import ApiClient from "@/app/lib/FetchOn";
 import React from "react";
+
+const req = new ApiClient();
 
 export default function Home() {
   const [user, setUser] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
-
-  async function register() {
-    const request = await fetch("http://localhost:3333/createUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: user, password: access }),
-    });
-    const response = await request.json();
-    console.log(response);
-  }
 
   return (
     <div>
@@ -34,7 +25,11 @@ export default function Home() {
         value={access}
         onChange={(e) => setAccess(e.target.value)}
       />
-      <button onClick={register}>Enter</button>
+      <button
+        onClick={() => req.registerUser({ email: user, password: access })}
+      >
+        Enter
+      </button>
     </div>
   );
 }

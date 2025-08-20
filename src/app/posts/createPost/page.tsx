@@ -1,21 +1,12 @@
 "use client";
+import ApiClient from "@/app/lib/FetchOn";
 import React from "react";
+
+const req = new ApiClient();
 
 export default function Page() {
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
-  async function post() {
-    const request = await fetch("http://localhost:3333/users/post", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      method: "POST",
-      body: JSON.stringify({ title, content, published: true }),
-    });
-    const response = await request.json();
-    console.log(response);
-  }
   return (
     <div>
       <label htmlFor="title">Title</label>
@@ -34,7 +25,11 @@ export default function Page() {
         }}
         value={content}
       />
-      <button onClick={post}>Botao</button>
+      <button
+        onClick={() => req.createPost({ title, content, published: true })}
+      >
+        Botao
+      </button>
     </div>
   );
 }
