@@ -1,29 +1,11 @@
-"use client";
-import React from "react";
-import styles from "./page.module.css";
 import SignIn from "@/app/lib/SignIn";
+import ErrorBoundary from "@/app/components/ErrorBoundary";
+import AppError from "./error";
 
-export default function Home() {
-  const [user, setUser] = React.useState<string>("");
-  const [access, setAccess] = React.useState<string>("");
+export default async function Home() {
   return (
-    <div className={styles.page}>
-      <input
-        type="email"
-        onChange={(e) => {
-          setUser(e.target.value);
-        }}
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        value={access}
-        onChange={(e) => {
-          setAccess(e.target.value);
-        }}
-        placeholder="Password"
-      />
-      <SignIn user={user} access={access} />
-    </div>
+    <ErrorBoundary fallback={<AppError />}>
+      <SignIn />
+    </ErrorBoundary>
   );
 }

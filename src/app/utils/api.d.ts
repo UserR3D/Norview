@@ -14,8 +14,14 @@ interface Post extends Author {
   authorID: number;
 }
 
-type user = {
+type User = {
   id: number;
   email: string;
   role: "ADMIN" | "USER";
+};
+
+type FetchError = {
+  statusCode: number;
+  error: string;
+  message: string;
 };
