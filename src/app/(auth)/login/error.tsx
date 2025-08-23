@@ -11,7 +11,7 @@ export default function AppError({ error }: ErrorProps) {
   const router = useRouter();
   React.useEffect(() => {
     console.error(error?.message);
-  }, []);
+  }, [error]);
   return (
     <div>
       <h2>Another Error, just for you :D</h2>

@@ -5,12 +5,12 @@ import ApiClient from "../lib/FetchOn";
 const req = new ApiClient();
 
 export default function Home() {
-  const [list, setList] = React.useState<user[]>();
+  const [list, setList] = React.useState<User[]>();
 
   React.useEffect(() => {
     async function listF() {
       const res = await req.getUsers();
-      setList(res);
+      if (res[0]) setList(res[0]);
     }
     listF();
   }, []);

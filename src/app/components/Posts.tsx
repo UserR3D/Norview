@@ -8,9 +8,9 @@ export default async function Posts({ chunkSize }: { chunkSize: number }) {
   const arrayI: Post[][] = [];
   if (!chunkSize) throw Error("Invalid ChunkSize Length");
   const res = await req.getPosts();
-  if (res) {
+  if (res[0]) {
     for (let i = 0; i < res.length; i += chunkSize) {
-      const chunk = res.slice(i, i + chunkSize);
+      const chunk = res[0].slice(i, i + chunkSize);
       arrayI.push(chunk);
     }
   }

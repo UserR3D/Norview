@@ -20,8 +20,4 @@ type User = {
   role: "ADMIN" | "USER";
 };
 
-type FetchError = {
-  statusCode: number;
-  error: string;
-  message: string;
-};
+type ErrorObj = { error: string; message: string };
