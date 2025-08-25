@@ -11,16 +11,14 @@ export default async function Home() {
       <div className="mb-(--mg-l) max-lg:mb-15">
         <About />
       </div>
-      <span className="mb-(--mg-l)">
+      <div className="mb-(--mg-l)">
         <h2 className="text-4xl text-center text-(--font-P)">Posts</h2>
-        <div className="mb-(--mg-l)">
-          <ErrorBoundary fallback={<AppError />}>
-            <Suspense fallback={<Loading />}>
-              <Posts chunkSize={3} />
-            </Suspense>
-          </ErrorBoundary>
-        </div>
-      </span>
+        <ErrorBoundary fallback={<AppError />}>
+          <Suspense fallback={<Loading />}>
+            <Posts chunkSize={3} />
+          </Suspense>
+        </ErrorBoundary>
+      </div>
     </main>
   );
 }

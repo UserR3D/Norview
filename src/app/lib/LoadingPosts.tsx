@@ -28,30 +28,28 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
     }
   }
   return (
-    <span className="mb-(--mg-l) ">
+    <span>
       <ul
-        className="flex justify-center gap-[20px] mb-[20px] justify-items-center items-stretch 
-      max-md:flex-col max-md:items-center
-      "
+        className={`container grid grid-cols-3 gap-[20px] mb-[20px] max-sm:grid-cols-1`}
       >
         {state[index!].map((item) => (
           <li
             key={item.id}
-            className={`relative grid grid-rows-1 max-w-[600px] max-h-[300px] box-border p-4 basis-full text-(--smoky-black) gap-5 items-center text-justify bg-(--posts-bg) overflow-hidden
+            className={`flex flex-col rounded-sm h-[300px] justify-self-stretch text-(--smoky-black) gap-5 text-justify bg-(--posts-bg) overflow-hidden
              max-md:w-[300px] `}
             onClick={(e) => {
               flowToggle(e);
             }}
           >
-            <h2>{item.title}</h2>
-            <p>{item.content}</p>
-            <h4 className="bg-[#506C64] p-1 text-[#fff] text-center sticky -bottom-5">
+            <h2 className="pt-3 px-3  text">{item.title}</h2>
+            <p className="px-3 grow">{item.content}</p>
+            <h4 className="w-[100%] bg-[#506C64] text-center p-1 text-[#fff] sticky -bottom-1">
               {item.author.email}
             </h4>
           </li>
         ))}
       </ul>
-      <div className="container flex gap-10 justify-center">
+      <div className="mt-8 flex justify-around">
         <button className="bg-[#454ADE] p-3 " onClick={minusIndex}>
           Before Page
         </button>

@@ -7,7 +7,9 @@ export default async function Home() {
   return (
     <ErrorBoundary fallback={<Error />}>
       <Suspense fallback={<p>Loading...</p>}>
-        <Posts chunkSize={3} />
+        <div className="mb-(--mg-l)">
+          <Posts chunkSize={9} />
+        </div>
       </Suspense>
     </ErrorBoundary>
   );

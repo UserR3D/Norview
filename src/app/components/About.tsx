@@ -4,13 +4,13 @@ export default async function About() {
   return (
     <ul
       className={`${styles.about} 
-      flex content-center container justify-center content-center items-stretch text-(--font-P) gap-2
+      flex container items-strech text-(--font-P) gap-2
       max-sm:flex-col
       `}
     >
       <li
-        className="text-7xl text-center self-stretch
-        max-2xl:text-5xl max-lg:text-3xl"
+        className="text-7xl text-center 
+        max-2xl:text-5xl max-lg:text-3xl p-3"
       >
         <h1>
           Welcome <br />
@@ -20,7 +20,7 @@ export default async function About() {
       </li>
 
       <li
-        className="text-5xl text-center
+        className="text-6xl text-balance
       max-2xl:text-3xl max-lg:text-lg"
       >
         <h3>
