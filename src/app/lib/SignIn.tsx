@@ -19,7 +19,7 @@ export default function SignIn() {
   }
 
   return (
-    <div>
+    <form className="">
       <input
         type="email"
         onChange={(e) => {
@@ -46,6 +46,6 @@ export default function SignIn() {
       ) : (
         ""
       )}
-    </div>
+    </form>
   );
 }

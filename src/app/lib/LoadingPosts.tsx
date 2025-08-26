@@ -28,7 +28,7 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
     }
   }
   return (
-    <span>
+    <div className="mb-(--mg-l)">
       <ul
         className={`container grid grid-cols-3 gap-[20px] mb-[20px] max-sm:grid-cols-1`}
       >
@@ -57,6 +57,6 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
           Next Page
         </button>
       </div>
-    </span>
+    </div>
   );
 }

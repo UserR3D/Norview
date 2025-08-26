@@ -11,12 +11,12 @@ export default async function Page({
 }) {
   const postQuery = (await params).slug;
   const res = await req.singlePost(`/users/posts/${postQuery}`);
-  if (!res) return notFound();
+  if (!res[0]) return notFound();
   return (
     <div>
-      <h3>{res.title}</h3>
-      <p>{res.content}</p>
-      <h3>Author: {res.author.email}</h3>
+      <h3>{res[0].title}</h3>
+      <p>{res[0].content}</p>
+      <h3>Author: {res[0].author.email}</h3>
     </div>
   );
 }

@@ -20,8 +20,8 @@ export default async function About() {
       </li>
 
       <li
-        className="text-6xl text-balance
-      max-2xl:text-3xl max-lg:text-lg"
+        className="text-5xl text-balance
+      max-2xl:text-3xl max-lg:text-2xl"
       >
         <h3>
           This blog site was created with a simple objective: to give you a
