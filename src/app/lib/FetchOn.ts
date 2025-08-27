@@ -68,4 +68,7 @@ export default class ApiClient {
   public async registerUser(data: object) {
     return this.doRequest("/createUser", "POST", data);
   }
+  public async getUserPosts(email: string) {
+    return this.doRequest<Post[]>(`/user/posts/${email}`, "GET");
+  }
 }
