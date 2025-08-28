@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 
 export default function LoadingPosts({ state }: { state: Post[][] }) {
@@ -28,32 +29,38 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
     }
   }
   return (
-    <div className="mb-(--mg-l)">
-      <ul
-        className={`container grid grid-cols-3 gap-[20px] mb-[20px] max-sm:grid-cols-1`}
-      >
-        {state[index!].map((item) => (
+    <div className="container">
+      {state[index!].map((item) => (
+        <ul
+          key={item.id}
+          className={`grid grid-cols-3 mt-2 border border-solid rounded-sm items-center text-(--smoky-black) gap-5 text-justify bg-(--posts-bg)
+             max-md:grid-cols-1`}
+        >
+          <li className="pt-3 px-3">
+            <h2>{item.title}</h2>
+          </li>
           <li
-            key={item.id}
-            className={`flex flex-col rounded-sm h-[300px] justify-self-stretch text-(--smoky-black) gap-5 text-justify bg-(--posts-bg) overflow-hidden
-             max-md:w-[300px] `}
+            className=" max-h-[180px] text-ellipsis  overflow-hidden"
             onClick={(e) => {
               flowToggle(e);
             }}
           >
-            <h2 className="pt-3 px-3  text">{item.title}</h2>
-            <p className="px-3 grow">{item.content}</p>
-            <h4 className="w-[100%] bg-[#506C64] text-center p-1 text-[#fff] sticky -bottom-1">
-              {item.author.email}
-            </h4>
+            <p>{item.content}</p>
           </li>
-        ))}
-      </ul>
-      <div className="mt-8 flex justify-around">
-        <button className="bg-[#454ADE] p-3 " onClick={minusIndex}>
+          <Link href={`/user/${item.author.email}`}>
+            <li>
+              <h4 className="bg-[#506C64] text-center p-1 text-[#fff] ">
+                {item.author.email}
+              </h4>
+            </li>
+          </Link>
+        </ul>
+      ))}
+      <div className="mb-4 mt-4 flex justify-between">
+        <button className="bg-[#454ADE] p-3" onClick={minusIndex}>
           Before Page
         </button>
-        <button className="bg-[#454ADE] p-3 " onClick={moreIndex}>
+        <button className="bg-[#454ADE] p-3" onClick={moreIndex}>
           Next Page
         </button>
       </div>

@@ -25,7 +25,7 @@ export default function Nav({ username }: { username: string | undefined }) {
           <ul className={`${styles.navUser} relative flex-col `}>
             <li>{username}</li>
             <div>
-              <Link href={`/user`}>
+              <Link href={`/user/${username}`}>
                 <li>Posts</li>
               </Link>
               <li>

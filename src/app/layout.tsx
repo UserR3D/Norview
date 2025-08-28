@@ -18,13 +18,13 @@ export default async function RootLayout({
   const session = await verifySession();
   return (
     <html lang="en">
-      <body className="bg-(--background)">
+      <body className="bg-(--background) relative">
         <AuthProvider>
           <header className="mb-(--mg-l) max-lg:mb-15 ">
             <Nav username={session?.email} />
           </header>
           {children}
-          <footer>
+          <footer className="bg-[#23B5D3]">
             <Footer />
           </footer>
         </AuthProvider>
