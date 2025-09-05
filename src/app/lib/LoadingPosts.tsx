@@ -4,7 +4,6 @@ import React from "react";
 
 export default function LoadingPosts({ state }: { state: Post[][] }) {
   const [index, setIndex] = React.useState<number | undefined>(0);
-  const [toggle, setToggle] = React.useState(false);
 
   function minusIndex() {
     if (!index) {
@@ -20,14 +19,6 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
       setIndex((prevState) => prevState! + 1);
     }
   }
-  function flowToggle(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
-    setToggle(!toggle);
-    if (toggle) {
-      e.currentTarget.style.overflow = "auto";
-    } else {
-      e.currentTarget.style.overflow = "hidden";
-    }
-  }
   return (
     <div className="container">
       {state[index!].map((item) => (
@@ -37,15 +28,14 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
              max-md:grid-cols-1`}
         >
           <li className="pt-3 px-3">
-            <h2>{item.title}</h2>
+            <Link href={`/posts/${item.id}`}>
+              <h2>{item.title}</h2>
+            </Link>
           </li>
-          <li
-            className=" max-h-[180px] text-ellipsis  overflow-hidden"
-            onClick={(e) => {
-              flowToggle(e);
-            }}
-          >
-            <p>{item.content}</p>
+          <li className="max-h-[150px] px-3 overflow-hidden">
+            <Link href={`/posts/${item.id}`}>
+              <p>{item.content}</p>
+            </Link>
           </li>
           <Link href={`/user/${item.author.email}`}>
             <li>

@@ -21,10 +21,10 @@ export default async function RootLayout({
       <body className="bg-(--background) relative">
         <AuthProvider>
           <header className="mb-(--mg-l) max-lg:mb-15 ">
-            <Nav username={session?.email} />
+            <Nav username={session?.email} role={session?.role} />
           </header>
-          {children}
-          <footer className="bg-[#23B5D3]">
+          <main className="mb-[20vh]">{children}</main>
+          <footer className="fixed bottom-0 bg-[#23B5D3]">
             <Footer />
           </footer>
         </AuthProvider>

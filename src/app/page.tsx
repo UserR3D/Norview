@@ -7,7 +7,7 @@ import Loading from "./loading";
 import AppError from "./error";
 export default async function Home() {
   return (
-    <main>
+    <>
       <div className="mb-(--mg-l) max-lg:mb-15">
         <About />
       </div>
@@ -15,10 +15,10 @@ export default async function Home() {
         <h2 className="text-4xl text-center text-(--font-P)">Posts</h2>
         <ErrorBoundary fallback={<AppError />}>
           <Suspense fallback={<Loading />}>
-            <Posts chunkSize={3} />
+            <Posts chunkSize={9} />
           </Suspense>
         </ErrorBoundary>
       </div>
-    </main>
+    </>
   );
 }

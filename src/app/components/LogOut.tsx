@@ -12,5 +12,5 @@ export default function LogOut() {
     router.refresh();
     return await req.json();
   }
-  return <button onClick={signOut}>logOut</button>;
+  return <button onClick={signOut}>Logout</button>;
 }
