@@ -37,13 +37,13 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
               <p>{item.content}</p>
             </Link>
           </li>
-          <Link href={`/user/${item.author.email}`}>
-            <li>
+          <li>
+            <Link href={`/user/${item.author.email}`}>
               <h4 className="bg-[#506C64] text-center p-1 text-[#fff] ">
                 {item.author.email}
               </h4>
-            </li>
-          </Link>
+            </Link>
+          </li>
         </ul>
       ))}
       <div className="mb-4 mt-4 flex justify-between">

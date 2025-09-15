@@ -1,3 +1,5 @@
+type ResponseApi<T> = [T, null] | [null, ErrorObj];
+
 type Author = {
   author: {
     email: string;
@@ -20,4 +22,4 @@ type User = {
   role: "ADMIN" | "USER";
 };
 
-type ErrorObj = { error: string; message: string };
+type ErrorObj = { error?: string; message: string };

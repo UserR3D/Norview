@@ -14,11 +14,11 @@ export default function Nav({
   const [mobile, setMobile] = React.useState<boolean>(false);
   return (
     <nav
-      className={`${styles.navMain} container 
+      className={`${styles.navMain}  
       `}
     >
       <ul
-        className="flex justify-between bg-(--bg-fgray) text-(--font-P) text-4xl px-[90px] relative
+        className="flex container justify-between bg-(--bg-fgray) text-(--font-P) text-4xl px-[90px] relative
       max-xl:text-2xl max-lg:text-3xl max-lg:px-[20px] max-sm:text-base max-md:gap-2 max-sm:hidden"
       >
         <li>
@@ -58,14 +58,16 @@ export default function Nav({
           </li>
         )}
       </ul>
-      <ul className={`${styles.navMobile} bg-(--bg-fgray) flex flex-col`}>
+      <ul className={`${styles.navMobile} flex flex-col`}>
         <button
           onClick={() => setMobile((previousState) => !previousState)}
           className={`${styles.navButton}`}
         ></button>
 
         {mobile ? (
-          <ul className={`flex-col ${mobile} ? "flex" : "hidden"`}>
+          <ul
+            className={` bg-(--bg-fgray) flex-col ${mobile} ? "flex" : "hidden"`}
+          >
             <li>
               <Link href={"/"}>
                 <h2>Norview</h2>

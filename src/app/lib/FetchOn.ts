@@ -1,5 +1,3 @@
-type Response<T> = [T, null] | [null, ErrorObj];
-
 function createErrorObj(status: string, message: string): ErrorObj {
   return { error: status, message };
 }
@@ -15,7 +13,7 @@ export default class ApiClient {
     method: string,
     body?: object,
     config?: RequestInit
-  ): Promise<Response<T>> {
+  ): Promise<ResponseApi<T>> {
     try {
       let reqBody = null;
       const headers: Record<string, string> = {};
@@ -53,7 +51,7 @@ export default class ApiClient {
     return this.doRequest<Post>(path, "GET");
   }
   public async createPost(data: object) {
-    return this.doRequest("/users/createPost", "POST", data, {
+    return this.doRequest<Post>("/users/createPost", "POST", data, {
       credentials: "include",
     });
   }
