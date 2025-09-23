@@ -24,7 +24,7 @@ export default async function RootLayout({
             <Nav username={session?.email} role={session?.role} />
           </header>
           <main className="mb-[20vh]">{children}</main>
-          <footer className="fixed bottom-0 bg-[#23B5D3]">
+          <footer>
             <Footer />
           </footer>
         </AuthProvider>

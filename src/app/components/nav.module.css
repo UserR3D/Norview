@@ -5,7 +5,7 @@
 }
 
 .navMain li {
-  padding: 16px 0;
+  padding: 10px 0;
 }
 
 .navUser div {
@@ -53,6 +53,10 @@
   .navMobile {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
+  }
+
+  .navMobile li:hover {
+    box-shadow: 0px 5px 0px 0px #fff;
   }
 }

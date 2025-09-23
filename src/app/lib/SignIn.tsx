@@ -9,7 +9,8 @@ export default function SignIn() {
   const [user, setUser] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
   const router = useRouter();
-  async function login() {
+  async function login(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
     const res = await req.login({
       email: user,
       password: access,

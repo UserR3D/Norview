@@ -1,7 +1,6 @@
 "use server";
 import ApiClient from "@/app/lib/FetchOn";
 import React from "react";
-import NotFound from "./not-found";
 import { notFound } from "next/navigation";
 
 const req = new ApiClient();

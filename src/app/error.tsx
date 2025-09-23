@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import React from "react";
 
 interface ErrorProps {
@@ -8,16 +7,22 @@ interface ErrorProps {
 }
 
 export default function AppError({ error }: ErrorProps) {
-  const router = useRouter();
   React.useEffect(() => {
     console.error(error?.message);
-  }, []);
+  }, [error]);
   return (
-    <div>
+    <div className="container text-center">
       <h2>Another Error, just for you :D</h2>
-      <button className="bg-amber-100" onClick={() => router.refresh()}>
-        Try again???
-      </button>
+      {error ? <p>{error.message}</p> : <p>Error undefined</p>}
+      <section className="flex gap-3 justify-center">
+        <button
+          className="bg-amber-100"
+          onClick={() => window.location.reload()}
+        >
+          Try again
+        </button>
+        <button>Go home</button>
+      </section>
     </div>
   );
 }

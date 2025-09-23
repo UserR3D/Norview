@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./nav.module.css";
 import LogOut from "./LogOut";
-import React from "react";
+import React, { act } from "react";
 
 export default function Nav({
   username,
@@ -12,6 +12,11 @@ export default function Nav({
   role: string | undefined;
 }) {
   const [mobile, setMobile] = React.useState<boolean>(false);
+  const [active, setActive] = React.useState<boolean>(false);
+  function activeMobile() {
+    setActive(!active);
+    console.log(active);
+  }
   return (
     <nav
       className={`${styles.navMain}  
@@ -60,13 +65,14 @@ export default function Nav({
       </ul>
       <ul className={`${styles.navMobile} flex flex-col`}>
         <button
-          onClick={() => setMobile((previousState) => !previousState)}
+          onClick={() => setMobile(!mobile)}
           className={`${styles.navButton}`}
         ></button>
 
         {mobile ? (
           <ul
-            className={` bg-(--bg-fgray) flex-col ${mobile} ? "flex" : "hidden"`}
+            className={`bg-(--bg-fgray) top-6 absolute p-4 flex-col w-[150px]`}
+            style={mobile ? { display: "flex" } : { display: "none" }}
           >
             <li>
               <Link href={"/"}>
@@ -81,8 +87,16 @@ export default function Nav({
             </li>
             {username ? (
               <ul>
-                <li className="relative">{username}</li>
-                <div>
+                <li className="relative" onClick={activeMobile}>
+                  {username} {active ? "⬏" : "⬎"}
+                </li>
+                <div
+                  style={
+                    active
+                      ? { opacity: "1", display: "block" }
+                      : { display: "none", opacity: "0" }
+                  }
+                >
                   <li>
                     <Link href={`/user/${username}`}>Posts</Link>
                   </li>

@@ -25,7 +25,7 @@ export default function LoadingPosts({ state }: { state: Post[][] }) {
         <ul
           key={item.id}
           className={`grid grid-cols-3 mt-2 border border-solid rounded-sm items-center text-(--smoky-black) gap-5 text-justify bg-(--posts-bg)
-             max-md:grid-cols-1`}
+            even:bg-[#E5E9EB] max-md:grid-cols-1`}
         >
           <li className="pt-3 px-3">
             <Link href={`/posts/${item.id}`}>
