@@ -8,13 +8,15 @@ type Author = {
   };
 };
 
-interface Post extends Author {
+type Post = {
   id: number;
   title: string;
   content: string;
   published: boolean;
   authorID: number;
-}
+};
+
+interface PostAuthor extends Post, Author {}
 
 type User = {
   id: number;

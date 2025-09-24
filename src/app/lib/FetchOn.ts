@@ -48,7 +48,7 @@ export default class ApiClient {
     });
   }
   public async singlePost(path: string) {
-    return this.doRequest<Post>(path, "GET");
+    return this.doRequest<PostAuthor>(path, "GET");
   }
   public async createPost(data: object) {
     return this.doRequest<Post>("/users/createPost", "POST", data, {
@@ -56,7 +56,7 @@ export default class ApiClient {
     });
   }
   public async getPosts() {
-    return this.doRequest<Post[]>("/users/posts", "GET");
+    return this.doRequest<PostAuthor[]>("/users/posts", "GET");
   }
   public async getUsers() {
     return this.doRequest<User[]>("/users", "GET", undefined, {
@@ -67,6 +67,6 @@ export default class ApiClient {
     return this.doRequest("/createUser", "POST", data);
   }
   public async getUserPosts(email: string) {
-    return this.doRequest<Post[]>(`/user/posts/${email}`, "GET");
+    return this.doRequest<PostAuthor[]>(`/user/posts/${email}`, "GET");
   }
 }

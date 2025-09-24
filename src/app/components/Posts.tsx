@@ -3,10 +3,14 @@ import LoadingPosts from "@/app/lib/LoadingPosts";
 import ApiClient from "../lib/FetchOn";
 import ErrorServer from "./ErrorServer";
 
-const req = new ApiClient();
-
-export default async function Posts({ chunkSize }: { chunkSize: number }) {
-  const arrayI: Post[][] = [];
+export default async function Posts({
+  posts,
+  chunkSize,
+}: {
+  posts: ResponseApi<PostAuthor[]>;
+  chunkSize: number;
+}) {
+  const arrayI: PostAuthor[][] = [];
   if (!chunkSize)
     return (
       <ErrorServer
@@ -16,10 +20,9 @@ export default async function Posts({ chunkSize }: { chunkSize: number }) {
         }}
       />
     );
-  const res = await req.getPosts();
-  if (!res[0]) return <ErrorServer error={res[1]} />;
-  for (let i = 0; i < res[0].length; i += chunkSize) {
-    const chunk = res[0].slice(i, i + chunkSize);
+  if (!posts[0]) return <ErrorServer error={posts[1]} />;
+  for (let i = 0; i < posts[0].length; i += chunkSize) {
+    const chunk = posts[0].slice(i, i + chunkSize);
     arrayI.push(chunk);
   }
 

@@ -5,7 +5,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { Suspense } from "react";
 import Loading from "./loading";
 import AppError from "./error";
+import ApiClient from "./lib/FetchOn";
+const req = new ApiClient();
 export default async function Home() {
+  const res = await req.getPosts();
   return (
     <>
       <div className="mb-(--mg-l) max-lg:mb-15">
@@ -15,7 +18,7 @@ export default async function Home() {
         <h2 className="text-4xl text-center text-(--font-P)">Posts</h2>
         <ErrorBoundary fallback={<AppError />}>
           <Suspense fallback={<Loading />}>
-            <Posts chunkSize={9} />
+            <Posts posts={res} chunkSize={9} />
           </Suspense>
         </ErrorBoundary>
       </div>

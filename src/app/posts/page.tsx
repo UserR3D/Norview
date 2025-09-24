@@ -3,11 +3,15 @@ import { Suspense } from "react";
 import Posts from "../components/Posts";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Error from "./error";
+import ApiClient from "../lib/FetchOn";
+const req = new ApiClient();
+
 export default async function Home() {
+  const res = await req.getPosts();
   return (
     <ErrorBoundary fallback={<Error />}>
       <Suspense fallback={<p>Loading...</p>}>
-        <Posts chunkSize={12} />
+        <Posts posts={res} chunkSize={12} />
       </Suspense>
     </ErrorBoundary>
   );
