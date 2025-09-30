@@ -2,21 +2,15 @@
 :root {
   --background: #f8f8f8;
   --foreground: #171717;
-  --mg-l: 80px;
   --bg-fgray: #aeb3cb;
   --ucla-blue: #587792;
   --about-white: #f7f7ff;
   --smoky-black: #070600;
   --font-P: #01172f;
   --posts-bg: #d9d9d9;
+  --green-0: #506c64;
   --breakpoint-xiv: 100vw;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --background: #0a0a0a;
-    --foreground: #ededed; */
-  }
+  --mg-l: 80px;
 }
 
 input {

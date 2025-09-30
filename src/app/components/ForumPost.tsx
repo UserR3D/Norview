@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function ForumPost({ data }: { data: PostAuthor }) {
-  console.log(data);
   return (
     <ul
       className="grid grid-cols-3 mt-2 border border-solid rounded-sm items-center text-(--smoky-black) gap-5 text-justify bg-(--posts-bg)
@@ -18,11 +17,9 @@ export default function ForumPost({ data }: { data: PostAuthor }) {
           <p>{data.content}</p>
         </Link>
       </li>
-      <li className="bg-[#506C64] text-center p-1 text-[#fff]">
+      <li className="text-center bg-(--green-0)  p-1 text-[#fff]">
         <Link href={`/user/${data.author.email}`}>
-          <h4 className="bg-[#506C64] text-center p-1 text-[#fff] ">
-            {data.author.email}
-          </h4>
+          <h4>{data.author.email}</h4>
         </Link>
       </li>
     </ul>

@@ -69,4 +69,10 @@ export default class ApiClient {
   public async getUserPosts(email: string) {
     return this.doRequest<PostAuthor[]>(`/user/posts/${email}`, "GET");
   }
+  public async deleteUser(id: number) {
+    return this.doRequest(`/deleteUser/${id}`, "DELETE");
+  }
+  public async updateUser(id: number, role: string) {
+    return this.doRequest(`/updateUser/${id}`, "PUT", { role });
+  }
 }

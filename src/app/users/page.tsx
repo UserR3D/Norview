@@ -1,11 +1,25 @@
 "use client";
 import React from "react";
 import ApiClient from "../lib/FetchOn";
+import { useRouter } from "next/navigation";
 
 const req = new ApiClient();
 
 export default function Home() {
+  const route = useRouter();
   const [list, setList] = React.useState<User[]>();
+  const [roles, setRoles] = React.useState<string>("USER");
+  console.log(roles);
+
+  async function updateRole(id: number) {
+    req.updateUser(id, roles);
+    route.refresh();
+  }
+
+  async function deleteUser(id: number) {
+    await req.deleteUser(id);
+    route.refresh();
+  }
 
   React.useEffect(() => {
     async function listF() {
@@ -18,13 +32,28 @@ export default function Home() {
   if (!list) return <p>teste fail</p>;
 
   return (
-    <div>
+    <section className="container p-4 bg-[#d2d2d2] border-2 border-gray-700">
       {list.map((item) => (
-        <div key={item.id}>
+        <div
+          className="grid grid-cols-[1fr_0.5fr_0.5fr_0.5fr] text-center gap-3"
+          key={item.id}
+        >
           <p>{item.email}</p>
-          <p>{item.role}</p>
+          <select
+            onChange={(e) => {
+              setRoles(e.currentTarget.value);
+            }}
+            defaultValue={item.role}
+            name={item.role}
+            className="text-center"
+          >
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER">USER</option>
+          </select>
+          <button onClick={() => deleteUser(item.id)}>Deletar</button>
+          <button onClick={() => updateRole(item.id)}>Enviar</button>
         </div>
       ))}
-    </div>
+    </section>
   );
 }
