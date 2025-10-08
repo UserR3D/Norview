@@ -1,3 +1,4 @@
+import SignIn from "@/app/lib/SignIn";
 import { verifySession } from "@/app/lib/verifySession";
 import type { Metadata } from "next";
 
@@ -14,8 +15,9 @@ export default async function CreatePostLayout({
   const session = await verifySession();
   if (!session) {
     return (
-      <div>
-        <p>Please make your login</p>
+      <div className="container">
+        <h4 className="text-4xl text-center">Please make your login</h4>
+        <SignIn />
       </div>
     );
   }
