@@ -23,7 +23,7 @@ export default function SignIn() {
   return (
     <section className="container">
       <form className="flex flex-col gap-3 justify-center bg-[#ffffff] rounded-2xl p-8">
-        <p className="self-center">Sign in to Norview</p>
+        <p className="text-4xl self-center">Sign in to Norview</p>
         <label htmlFor="email">Username or email address</label>
         <input
           type="email"
