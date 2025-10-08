@@ -26,11 +26,23 @@ export default function LoadingPosts({ state }: { state: PostAuthor[][] }) {
           <ForumPost data={item} />
         </div>
       ))}
-      <div className="mb-4 mt-4 flex justify-between">
-        <button className="bg-[#454ADE] p-3" onClick={minusIndex}>
+      <div className="mb-4 mt-4 flex justify-between text-[#fff]">
+        <button
+          style={!index ? { opacity: "0.6", cursor: "not-allowed" } : {}}
+          className="bg-[#454ADE] p-3"
+          onClick={minusIndex}
+        >
           Before Page
         </button>
-        <button className="bg-[#454ADE] p-3" onClick={moreIndex}>
+        <button
+          style={
+            index == state.length - 1
+              ? { opacity: "0.6", cursor: "not-allowed" }
+              : {}
+          }
+          className="bg-[#454ADE] p-3 "
+          onClick={moreIndex}
+        >
           Next Page
         </button>
       </div>

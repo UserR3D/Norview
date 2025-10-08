@@ -11,17 +11,17 @@ export default async function Home() {
   const res = await req.getPosts();
   return (
     <>
-      <div className="mb-(--mg-l) max-lg:mb-15">
+      <article className="mb-(--mg-l) max-lg:mb-15">
         <About />
-      </div>
-      <div className="mb-(--mg-l)">
+      </article>
+      <section>
         <h2 className="text-4xl text-center text-(--font-P)">Posts</h2>
         <ErrorBoundary fallback={<AppError />}>
           <Suspense fallback={<Loading />}>
             <Posts posts={res} chunkSize={9} />
           </Suspense>
         </ErrorBoundary>
-      </div>
+      </section>
     </>
   );
 }
