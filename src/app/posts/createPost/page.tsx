@@ -8,7 +8,6 @@ export default function Page() {
   const [title, setTitle] = React.useState<string>("");
   const [content, setContent] = React.useState<string>("");
   const [error, setError] = React.useState<ErrorObj | null>();
-  console.log(response);
   async function postcreate() {
     if (title?.length < 10 || title?.length > 60)
       return setError({
@@ -22,7 +21,6 @@ export default function Page() {
       });
     setError(null);
     setResponse(await req.createPost({ title, content, published: true }));
-    console.log(response);
   }
 
   return (

@@ -15,7 +15,6 @@ export default function Nav({
   const [active, setActive] = React.useState<boolean>(false);
   function activeMobile() {
     setActive(!active);
-    console.log(active);
   }
   return (
     <nav

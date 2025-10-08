@@ -11,16 +11,13 @@ export default function Home() {
   const [error, setError] = React.useState<string>("");
   async function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(user)) {
-      if (access.length || password.length < 8)
-        setError("Password with less that 8 characters");
-      if (access === password) {
-        req.registerUser({ email: user, password: access, role: "USER" });
-      } else {
-        setError("Passwords must be the same");
-      }
+    if (!emailRegex.test(user)) setError("Email invalid");
+    if (access.length || password.length < 8)
+      setError("Password with less that 8 characters");
+    if (access === password) {
+      req.registerUser({ email: user, password: access, role: "USER" });
     } else {
-      setError("Email invalid");
+      setError("Passwords must be the same");
     }
   }
 

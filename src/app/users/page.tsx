@@ -9,7 +9,6 @@ export default function Home() {
   const route = useRouter();
   const [list, setList] = React.useState<User[]>();
   const [roles, setRoles] = React.useState<string>("USER");
-  console.log(roles);
 
   async function updateRole(id: number) {
     req.updateUser(id, roles);
