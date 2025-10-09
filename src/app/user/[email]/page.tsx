@@ -3,8 +3,19 @@ import ApiClient from "@/app/lib/FetchOn";
 import React from "react";
 import { notFound } from "next/navigation";
 import Posts from "@/app/components/Posts";
+import { Metadata } from "next";
 
 const req = new ApiClient();
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ email: string }>;
+}): Promise<Metadata> {
+  return {
+    title: (await params).email,
+  };
+}
 
 export default async function Page({
   params,

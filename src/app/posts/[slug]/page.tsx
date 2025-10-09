@@ -1,9 +1,22 @@
 "use server";
 import ApiClient from "@/app/lib/FetchOn";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const req = new ApiClient();
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: number }>;
+}): Promise<Metadata> {
+  const postQuery = (await params).slug;
+  const res = await req.singlePost(`/users/posts/${postQuery}`);
+  return {
+    title: res[0]?.title,
+  };
+}
 
 export default async function Page({
   params,

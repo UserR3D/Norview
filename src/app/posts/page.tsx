@@ -4,7 +4,14 @@ import Posts from "../components/Posts";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Error from "./error";
 import ApiClient from "../lib/FetchOn";
+import { Metadata } from "next";
 const req = new ApiClient();
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Forum",
+  };
+}
 
 export default async function Home() {
   const res = await req.getPosts();
