@@ -11,7 +11,7 @@ export default function Home() {
   const [error, setError] = React.useState<string>("");
   async function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(user)) setError("Email invalid");
+    if (!emailRegex.test(user)) return setError("Email invalid");
     if (access.length || password.length < 8)
       setError("Password with less that 8 characters");
     if (access === password) {
