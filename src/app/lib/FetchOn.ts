@@ -31,6 +31,7 @@ export default class ApiClient {
       });
       const res =
         (await req.json().catch(() => {
+          // eslint-disable-next-line
           error: "Error ao processar resposta";
         })) ?? ({} as T | { error: string });
       if ("error" in res) {

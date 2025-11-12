@@ -9,13 +9,16 @@ export default function Home() {
   const [password, setPassword] = React.useState<string>("");
   const [access, setAccess] = React.useState<string>("");
   const [error, setError] = React.useState<string>("");
+  const [sucess, setSuccess] = React.useState<string>("");
   async function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(user)) return setError("Email invalid");
-    if (access.length || password.length < 8)
+    if (access.length && password.length < 8)
       setError("Password with less that 8 characters");
     if (access === password) {
       req.registerUser({ email: user, password: access, role: "USER" });
+      setSuccess("Sucess");
+      setError("");
     } else {
       setError("Passwords must be the same");
     }
@@ -55,6 +58,7 @@ export default function Home() {
           Enter
         </button>
         {error ? <p className="text-red-500">{error}</p> : ""}
+        {sucess ? <p className="text-green-500">{sucess}</p> : ""}
       </div>
     </section>
   );

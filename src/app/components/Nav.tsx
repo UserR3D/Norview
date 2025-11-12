@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./nav.module.css";
 import LogOut from "./LogOut";
-import React, { act } from "react";
+import React from "react";
 
 export default function Nav({
   username,

@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default function getSession() {
+export default function GetSession() {
   const context = React.useContext(AuthContext);
   if (!context) {
     console.log("Context deve  ser usado dentro de um AuthProvider");

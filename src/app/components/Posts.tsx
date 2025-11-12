@@ -1,6 +1,5 @@
 "use server";
 import LoadingPosts from "@/app/lib/LoadingPosts";
-import ApiClient from "../lib/FetchOn";
 import ErrorServer from "./ErrorServer";
 
 export default async function Posts({
